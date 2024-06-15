@@ -14,6 +14,8 @@ public class CheckoutSolution {
         Integer totalValue = 0;
         Integer nr_A_prom = 3;
         Integer nr_B_prom = 2;
+        Integer nr_E_prom = 2;
+
 
         for (int i = 0; i < skus.length(); i++) {
             Character ch = skus.charAt(i);
@@ -23,6 +25,16 @@ public class CheckoutSolution {
             Integer val = freq.get(ch);
             freq.put(ch, val + 1);
         }
+
+//        check the number of E's and remove the corresponding B's
+        Integer nr_e = freq.get('E');
+        Integer nr_b = freq.get('B');
+        if (nr_b >= nr_e / 2) {
+            nr_b -= nr_e / 2;
+        } else {
+            nr_b = 0;
+        }
+        freq.put('B', nr_b);
 
         for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
             Character key = entry.getKey();
@@ -39,6 +51,8 @@ public class CheckoutSolution {
                 totalValue += 20 * val;
             } else if (key.equals('D')) {
                 totalValue += 15 * val;
+            } else if (key.equals('E')) {
+                    totalValue += 40 * val;
             } else {
 //                bad input
                 return -1;
@@ -49,3 +63,4 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
+

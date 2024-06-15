@@ -46,8 +46,15 @@ public class CheckoutTest {
         assertThat(chk.checkout("ABCDDABCAABBABBAA"), equalTo(515));
     }
 
+
     @Test
     public void bad_input() {
         assertThat(chk.checkout("AAEB"), equalTo(-1));
     }
+
+    @Test
+    public void testE() {
+        assertThat(chk.checkout("EEE"), equalTo(120));
+    }
 }
+
