@@ -136,9 +136,9 @@ public class CheckoutSolution {
         }
 
         totalValue += offerXYZquantity / 3 * 45;
-        offerXYZList.sort(Comparator.comparingInt(Product::getPrice));
+        offerXYZList.sort(Comparator.comparingInt(Product::getPrice).reversed());
         for (Product product : offerXYZList) {
-            if (offerXYZquantity <= 0) {
+            if (offerXYZquantity < 3) {
                 break;
             }
             Integer productQuantity = product.getQuantity();
@@ -170,3 +170,4 @@ public class CheckoutSolution {
     }
 
 }
+
