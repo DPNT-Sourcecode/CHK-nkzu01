@@ -30,6 +30,8 @@ public class CheckoutSolution {
                     product = new Product(ch.toString(), 20, 0);
                 } else if (ch.equals('D')) {
                     product = new Product(ch.toString(), 15, 0);
+                }  else if (ch.equals('E')) {
+                    product = new ProductE(ch.toString(), 15, 0, 2, 1, 'B');
                 } else {
                     return -1;
                 }
@@ -57,6 +59,11 @@ public class CheckoutSolution {
 //            }
 //            freq.put('B', nr_b);
 //        }
+        for (Map.Entry<Character, Product> entry : products.entrySet()) {
+            Character key = entry.getKey();
+            Product product = entry.getValue();
+            product.reduceOffer(products);
+        }
 
 
 //        +------+-------+------------------------+
@@ -134,3 +141,4 @@ public class CheckoutSolution {
     }
 
 }
+

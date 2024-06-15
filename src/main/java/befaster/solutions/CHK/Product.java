@@ -1,5 +1,7 @@
 package befaster.solutions.CHK;
 
+import java.util.HashMap;
+
 public class Product {
     String name;
     Integer price;
@@ -42,4 +44,9 @@ public class Product {
         return this.price * this.quantity;
      }
 
+    public void reduceOffer(HashMap<Character, Product> products) {
+        return;
+    }
+
 }
+
