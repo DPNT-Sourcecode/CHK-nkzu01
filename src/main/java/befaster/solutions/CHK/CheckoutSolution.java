@@ -17,6 +17,37 @@ public class CheckoutSolution {
 
         HashMap<Character, Product> products = new HashMap<>(0);
 
+
+//+------+-------+---------------------------------+
+//| Item | Price | Special offers                  |
+//+------+-------+---------------------------------+
+//| A    | 50    | 3A for 130, 5A for 200          |
+//| B    | 30    | 2B for 45                       |
+//| C    | 20    |                                 |
+//| D    | 15    |                                 |
+//| E    | 40    | 2E get one B free               |
+//| F    | 10    | 2F get one F free               |
+//| G    | 20    |                                 |
+//| H    | 10    | 5H for 45, 10H for 80           |
+//| I    | 35    |                                 |
+//| J    | 60    |                                 |
+//| K    | 70    | 2K for 120                      |
+//| L    | 90    |                                 |
+//| M    | 15    |                                 |
+//| N    | 40    | 3N get one M free               |
+//| O    | 10    |                                 |
+//| P    | 50    | 5P for 200                      |
+//| Q    | 30    | 3Q for 80                       |
+//| R    | 50    | 3R get one Q free               |
+//| S    | 20    | buy any 3 of (S,T,X,Y,Z) for 45 |
+//| T    | 20    | buy any 3 of (S,T,X,Y,Z) for 45 |
+//| U    | 40    | 3U get one U free               |
+//| V    | 50    | 2V for 90, 3V for 130           |
+//| W    | 20    |                                 |
+//| X    | 17    | buy any 3 of (S,T,X,Y,Z) for 45 |
+//| Y    | 20    | buy any 3 of (S,T,X,Y,Z) for 45 |
+//| Z    | 21    | buy any 3 of (S,T,X,Y,Z) for 45 |
+//                +------+-------+---------------------------------+
         for (int i = 0; i < skus.length(); i++) {
             Character ch = skus.charAt(i);
 
@@ -43,7 +74,7 @@ public class CheckoutSolution {
                 } else if (ch.equals('J')) {
                     product = new Product(ch.toString(), 60, 0);
                 } else if (ch.equals('K')) {
-                    product = new ProductB(ch.toString(), 80, 0, 2, 150);
+                    product = new ProductB(ch.toString(), 70, 0, 2, 120);
                 } else if (ch.equals('L')) {
                     product = new Product(ch.toString(), 90, 0);
                 } else if (ch.equals('M')) {
@@ -59,7 +90,7 @@ public class CheckoutSolution {
                 } else if (ch.equals('R')) {
                     product = new ProductE(ch.toString(), 50, 0, 3, 1, 'Q');
                 } else if (ch.equals('S')) {
-                    product = new Product(ch.toString(), 30, 0);
+                    product = new Product(ch.toString(), 20, 0);
                 } else if (ch.equals('T')) {
                     product = new Product(ch.toString(), 20, 0);
                 } else if (ch.equals('U')) {
@@ -69,21 +100,19 @@ public class CheckoutSolution {
                 } else if (ch.equals('W')) {
                     product = new Product(ch.toString(), 20, 0);
                 }  else if (ch.equals('X')) {
-                    product = new Product(ch.toString(), 90, 0);
+                    product = new Product(ch.toString(), 17, 0);
                 }  else if (ch.equals('Y')) {
-                    product = new Product(ch.toString(), 10, 0);
+                    product = new Product(ch.toString(), 20, 0);
                 } else if (ch.equals('Z')) {
-                    product = new Product(ch.toString(), 50, 0);
+                    product = new Product(ch.toString(), 21, 0);
                 }   else {
                     return -1;
                 }
-//| W    | 20    |                        |
-//| X    | 90    |                        |
-//| Y    | 10    |                        |
-//| Z    | 50    |                        |
-//        +------+-------+------------------------+
                 products.put(ch, product);
             }
+
+
+
             if (!freq.containsKey(ch)) {
                 freq.put(ch, 0);
             }
@@ -92,14 +121,28 @@ public class CheckoutSolution {
             product.setQuantity(product.getQuantity() + 1);
             freq.put(ch, val + 1);
         }
+//      offer buy any of X,Y,Z for value V
+//        (S,T,X,Y,Z)
+        Integer offerXYZquantity = 0;
+        ArrayList<Product> offerXYZList = new ArrayList<>();
+        for (Map.Entry<Character, Product> entry : products.entrySet()) {
+            Character key = entry.getKey();
+            Product product = entry.getValue();
+            if (key.equals('S') || key.equals('T') || key.equals('X') || key.equals('Y') || key.equals('Z')) {
+                offerXYZquantity += product.getQuantity();
+                offerXYZList.add(product);
+            }
+        }
 
+
+//        offers that remove / free other products
         for (Map.Entry<Character, Product> entry : products.entrySet()) {
             Character key = entry.getKey();
             Product product = entry.getValue();
             product.reduceOffer(products);
         }
 
-
+//         normal price / buyxfory offer
         for (Map.Entry<Character, Product> entry : products.entrySet()) {
             Character key = entry.getKey();
             Product product = entry.getValue();
@@ -110,3 +153,4 @@ public class CheckoutSolution {
     }
 
 }
+
