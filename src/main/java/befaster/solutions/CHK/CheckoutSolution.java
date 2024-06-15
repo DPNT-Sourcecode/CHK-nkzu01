@@ -15,17 +15,11 @@ public class CheckoutSolution {
         Integer nr_E_prom = 2;
         Integer nr_F_prom = 3;
 
-        ArrayList<Product> products = new ArrayList<>(100);
 
         for (int i = 0; i < skus.length(); i++) {
             Character ch = skus.charAt(i);
             if (!freq.containsKey(ch)) {
                 freq.put(ch, 0);
-                if (ch.equals('A')) {
-                    Product productA = ProductA.builder().price(50).offerPrice1(200).
-                                        offerPrice2(130).offerQuantity1(5).offerQuantity2(3).quantity(0).build();
-                    products.add(productA);
-                }
             }
             Integer val = freq.get(ch);
             freq.put(ch, val + 1);
@@ -79,7 +73,7 @@ public class CheckoutSolution {
             Character key = entry.getKey();
             Integer val = entry.getValue();
             if (key.equals('A')) {
-                totalValue += TODO;
+                totalValue += 0;
             } else if (key.equals('B')) {
                 Integer nr_promotions = val / nr_B_prom;
                 totalValue += 45 * nr_promotions;
@@ -105,4 +99,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
