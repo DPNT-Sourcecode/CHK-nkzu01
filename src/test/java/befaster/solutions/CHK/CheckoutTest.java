@@ -61,6 +61,12 @@ public class CheckoutTest {
     public void testEAndB() {
         assertThat(chk.checkout("EEEEBB"), equalTo(160));
     }
+
+    @Test
+    public void testEAndB_complex() {
+        assertThat(chk.checkout("EEEEBBBABECCDBAA"), equalTo(460));
+    }
 }
+
 
 
