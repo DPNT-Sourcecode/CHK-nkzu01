@@ -26,7 +26,13 @@ public class CheckoutTest {
 //            | D    | 15    |                |
 //            +------+-------+----------------+
     @Test
-    public void compute_sum() {
+    public void compute_basic_sum() {
         assertThat(chk.checkout("ABC"), equalTo(100));
     }
+
+    @Test
+    public void compute_complex_sum() {
+        assertThat(chk.checkout("ABCCCDAD"), equalTo(220));
+    }
 }
+

@@ -24,16 +24,17 @@ public class CheckoutSolution {
         for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
             Character key = entry.getKey();
             if (key.equals('A')) {
-                totalValue += 50;
+                totalValue += 50 * entry.getValue();
             } else if (key.equals('B')) {
-                totalValue += 30;
+                totalValue += 30 * entry.getValue();
             } else if (key.equals('C')) {
-                totalValue += 20;
+                totalValue += 20 * entry.getValue();
             } else if (key.equals('D')) {
-                totalValue += 15;
+                totalValue += 15 * entry.getValue();
             }
         }
 
         return totalValue;
     }
 }
+
