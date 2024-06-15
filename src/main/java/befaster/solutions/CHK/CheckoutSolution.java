@@ -10,7 +10,6 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
-//        throw new SolutionNotImplementedException();
         HashMap<Character, Integer> freq = new HashMap<>(4);
         Integer totalValue = 0;
         Integer nr_A_prom = 3;
@@ -40,12 +39,17 @@ public class CheckoutSolution {
                 totalValue += 20 * val;
             } else if (key.equals('D')) {
                 totalValue += 15 * val;
+            } else {
+//                bad input
+                return -1;
             }
+
         }
 
         return totalValue;
     }
 }
+
 
 
 

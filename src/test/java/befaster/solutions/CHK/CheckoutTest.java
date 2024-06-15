@@ -30,10 +30,6 @@ public class CheckoutTest {
         assertThat(chk.checkout("ABC"), equalTo(100));
     }
 
-    @Test
-    public void compute_complex_sum() {
-        assertThat(chk.checkout("ABCCCDAD"), equalTo(220));
-    }
 
     @Test
     public void compute_tripleA() {
@@ -44,7 +40,18 @@ public class CheckoutTest {
     public void compute_doubleB() {
         assertThat(chk.checkout("DBB"), equalTo(60));
     }
+
+    @Test
+    public void compute_complex_sum() {
+        assertThat(chk.checkout("ABCDDABCAABBABBAA"), equalTo(515));
+    }
+
+    @Test
+    public void bad_input() {
+        assertThat(chk.checkout("AAEB"), equalTo(-1));
+    }
 }
+
 
 
 
