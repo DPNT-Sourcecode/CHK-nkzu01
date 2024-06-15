@@ -142,6 +142,8 @@ public class CheckoutSolution {
         Integer nrProdDeleted = offerXYZquantity / 3;
         nrProdDeleted *= 3;
         offerXYZList.sort(Comparator.comparingInt(Product::getPrice).reversed());
+        System.out.println("nrProdDeleted " + nrProdDeleted);
+        System.out.println(offerXYZList);
         for (Product product : offerXYZList) {
             if (nrProdDeleted < 3) {
                 break;
@@ -178,4 +180,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
