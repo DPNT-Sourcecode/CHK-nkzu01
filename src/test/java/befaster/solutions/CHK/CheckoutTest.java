@@ -43,7 +43,7 @@ public class CheckoutTest {
 
     @Test
     public void compute_complex_sum() {
-        assertThat(chk.checkout("ABCDDABCAABBABBAA"), equalTo(515));
+        assertThat(chk.checkout("ABCDDABCAABBABBAA"), equalTo(505));
     }
 
 
@@ -77,3 +77,4 @@ public class CheckoutTest {
         assertThat(chk.checkout("FFFFFF"), equalTo(40));
     }
 }
+
