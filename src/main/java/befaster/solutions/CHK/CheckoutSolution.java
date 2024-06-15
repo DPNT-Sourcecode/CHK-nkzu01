@@ -15,13 +15,21 @@ public class CheckoutSolution {
         Integer nr_E_prom = 2;
         Integer nr_F_prom = 3;
 
+        HashMap<Character, Product> products = new HashMap<>(0);
 
         for (int i = 0; i < skus.length(); i++) {
             Character ch = skus.charAt(i);
+
+            if (!products.containsKey(ch)) {
+                Product product = new Product(ch.toString(), 50, 0);
+                products.put(ch, product);
+            }
             if (!freq.containsKey(ch)) {
                 freq.put(ch, 0);
             }
             Integer val = freq.get(ch);
+            Product product = products.get(ch);
+            product.setQuantity(product.getQuantity() + 1);
             freq.put(ch, val + 1);
         }
 
@@ -108,6 +116,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
