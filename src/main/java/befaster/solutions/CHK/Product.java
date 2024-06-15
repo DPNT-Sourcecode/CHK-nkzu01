@@ -1,12 +1,14 @@
 package befaster.solutions.CHK;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public abstract class Product {
     int price;
     int offerPrice1;
@@ -28,3 +30,4 @@ public abstract class Product {
         return total;
     }
 }
+

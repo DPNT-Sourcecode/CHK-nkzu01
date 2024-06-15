@@ -22,7 +22,8 @@ public class CheckoutSolution {
             if (!freq.containsKey(ch)) {
                 freq.put(ch, 0);
                 if (ch.equals('A')) {
-                    ProductA productA = new ProductA();
+                    Product productA = ProductA.builder().price(50).offerPrice1(200).
+                                        offerPrice2(130).offerQuantity1(5).offerQuantity2(3).quantity(0).build();
                     products.add(productA);
                 }
             }
@@ -78,14 +79,6 @@ public class CheckoutSolution {
             Character key = entry.getKey();
             Integer val = entry.getValue();
             if (key.equals('A')) {
-////                first promotion
-//                Integer nr_promotions1 = val / nr_A_prom_1;
-//                totalValue += 200 * nr_promotions1;
-//                val -= nr_promotions1 * nr_A_prom_1;
-////                second promotion
-//                Integer nr_promotions2 = val / nr_A_prom_2;
-//                totalValue += 130 * nr_promotions2;
-//                totalValue += (val % nr_A_prom_2) * 50;
                 totalValue += TODO;
             } else if (key.equals('B')) {
                 Integer nr_promotions = val / nr_B_prom;
@@ -112,3 +105,4 @@ public class CheckoutSolution {
     }
 
 }
+
