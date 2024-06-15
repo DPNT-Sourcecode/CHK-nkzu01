@@ -1,6 +1,7 @@
 package befaster.solutions.CHK;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -134,6 +135,22 @@ public class CheckoutSolution {
             }
         }
 
+        totalValue += offerXYZquantity / 3 * 45;
+        offerXYZList.sort(Comparator.comparingInt(Product::getPrice));
+        for (Product product : offerXYZList) {
+            if (offerXYZquantity <= 0) {
+                break;
+            }
+            Integer productQuantity = product.getQuantity();
+            if (offerXYZquantity >= productQuantity) {
+                product.setQuantity(0);
+                offerXYZquantity -= productQuantity;
+            } else {
+                product.setQuantity(productQuantity - offerXYZquantity);
+                offerXYZquantity = 0;
+            }
+        }
+
 
 //        offers that remove / free other products
         for (Map.Entry<Character, Product> entry : products.entrySet()) {
@@ -153,4 +170,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
