@@ -12,6 +12,7 @@ public class CheckoutSolution {
         Integer nr_A_prom_2 = 3;
         Integer nr_B_prom = 2;
         Integer nr_E_prom = 2;
+        Integer nr_F_prom = 3;
 
 
         for (int i = 0; i < skus.length(); i++) {
@@ -28,13 +29,14 @@ public class CheckoutSolution {
             Integer nr_e = freq.get('E');
             Integer nr_b = 0;
             nr_b = freq.get('B');
-            if (nr_b >= nr_e / 2) {
-                nr_b -= nr_e / 2;
+            if (nr_b >= nr_e / nr_E_prom) {
+                nr_b -= nr_e / nr_E_prom;
             } else {
                 nr_b = 0;
             }
             freq.put('B', nr_b);
         }
+
 
 
         for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
@@ -58,7 +60,11 @@ public class CheckoutSolution {
             } else if (key.equals('D')) {
                 totalValue += 15 * val;
             } else if (key.equals('E')) {
-                    totalValue += 40 * val;
+                totalValue += 40 * val;
+            } else if (key.equals('F')) {
+                Integer nr_promotions = val / nr_F_prom;
+                val -= nr_promotions;
+                totalValue += 10 * val;
             } else {
 //                bad input
                 return -1;
@@ -69,7 +75,3 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
-
-
-
-

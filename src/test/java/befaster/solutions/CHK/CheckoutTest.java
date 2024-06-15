@@ -71,9 +71,9 @@ public class CheckoutTest {
     public void testMultipleA() {
         assertThat(chk.checkout("AAAAAAAAA"), equalTo(380));
     }
+
+    @Test
+    public void testF() {
+        assertThat(chk.checkout("FFFFFF"), equalTo(40));
+    }
 }
-
-
-
-
-
