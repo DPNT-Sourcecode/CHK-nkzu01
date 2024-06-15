@@ -95,6 +95,8 @@ public class CheckoutSolution {
                 Integer nr_promotions = val / nr_F_prom;
                 val -= nr_promotions;
                 totalValue += 10 * val;
+            } else if (key.equals('G')) {
+                totalValue += 20 * val;
             } else {
 //                bad input
                 return -1;
@@ -106,6 +108,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
