@@ -58,6 +58,12 @@ public class CheckoutTest {
     }
 
     @Test
+    public void testEAndBlowerB() {
+        assertThat(chk.checkout("EEEEB"), equalTo(160));
+    }
+
+
+    @Test
     public void testEAndB_complex() {
         assertThat(chk.checkout("EEEEBBBABECCDBAA"), equalTo(460));
     }
@@ -72,3 +78,4 @@ public class CheckoutTest {
         assertThat(chk.checkout("FFFFFF"), equalTo(40));
     }
 }
+

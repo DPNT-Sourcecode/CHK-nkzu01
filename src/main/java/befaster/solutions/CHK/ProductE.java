@@ -36,7 +36,12 @@ public class ProductE extends Product{
 //            }
 //            freq.put('B', nr_b);
 //        }
-        product.setQuantity(product.getQuantity() - (this.quantity / this.offerQuantity) * offerReduceQuantityAmount);
+        if (product.getQuantity() >= (this.quantity / this.offerQuantity) * offerReduceQuantityAmount) {
+            product.setQuantity(product.getQuantity() - (this.quantity / this.offerQuantity) * offerReduceQuantityAmount);
+            return;
+        }
+        product.setQuantity(0);
     }
 }
+
 
