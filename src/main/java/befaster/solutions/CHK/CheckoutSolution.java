@@ -73,7 +73,14 @@ public class CheckoutSolution {
             Character key = entry.getKey();
             Integer val = entry.getValue();
             if (key.equals('A')) {
-                totalValue += 0;
+//                first promotion
+                Integer nr_promotions1 = val / nr_A_prom_1;
+                totalValue += 200 * nr_promotions1;
+                val -= nr_promotions1 * nr_A_prom_1;
+//                second promotion
+                Integer nr_promotions2 = val / nr_A_prom_2;
+                totalValue += 130 * nr_promotions2;
+                totalValue += (val % nr_A_prom_2) * 50;
             } else if (key.equals('B')) {
                 Integer nr_promotions = val / nr_B_prom;
                 totalValue += 45 * nr_promotions;
@@ -99,5 +106,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
