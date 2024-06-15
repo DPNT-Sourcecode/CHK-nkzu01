@@ -30,4 +30,3 @@ public class CheckoutTest {
         assertThat(chk.checkout("ABC"), equalTo(100));
     }
 }
-

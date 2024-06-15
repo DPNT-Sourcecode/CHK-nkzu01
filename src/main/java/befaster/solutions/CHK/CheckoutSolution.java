@@ -9,11 +9,14 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 //        throw new SolutionNotImplementedException();
-        HashMap<Character, Integer> freq = new HashMap<>(4, 0);
+        HashMap<Character, Integer> freq = new HashMap<>(4);
         Integer totalValue = 0;
 
         for (int i = 0; i < skus.length(); i++) {
             Character ch = skus.charAt(i);
+            if (!freq.containsKey(ch)) {
+                freq.put(ch, 0);
+            }
             Integer val = freq.get(ch);
             freq.put(ch, val + 1);
         }
@@ -34,6 +37,3 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
-
-
-
