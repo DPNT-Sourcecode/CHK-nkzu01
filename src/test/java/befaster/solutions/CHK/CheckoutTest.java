@@ -51,8 +51,3 @@ public class CheckoutTest {
         assertThat(chk.checkout("AAEB"), equalTo(-1));
     }
 }
-
-
-
-
-
