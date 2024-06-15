@@ -28,13 +28,17 @@ public class CheckoutSolution {
 
 //        check the number of E's and remove the corresponding B's
         Integer nr_e = freq.get('E');
-        Integer nr_b = freq.get('B');
-        if (nr_b >= nr_e / 2) {
-            nr_b -= nr_e / 2;
-        } else {
-            nr_b = 0;
+        Integer nr_b = 0;
+        if (freq.containsKey('B')) {
+            nr_b = freq.get('B');
+            if (nr_b >= nr_e / 2) {
+                nr_b -= nr_e / 2;
+            } else {
+                nr_b = 0;
+            }
+            freq.put('B', nr_b);
         }
-        freq.put('B', nr_b);
+
 
         for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
             Character key = entry.getKey();
@@ -63,4 +67,5 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
+
 

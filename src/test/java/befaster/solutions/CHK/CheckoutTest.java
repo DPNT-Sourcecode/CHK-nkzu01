@@ -56,5 +56,11 @@ public class CheckoutTest {
     public void testE() {
         assertThat(chk.checkout("EEE"), equalTo(120));
     }
+
+    @Test
+    public void testEAndB() {
+        assertThat(chk.checkout("EEEEBB"), equalTo(160));
+    }
 }
+
 
