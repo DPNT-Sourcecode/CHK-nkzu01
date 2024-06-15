@@ -30,4 +30,3 @@ public class BuyXForY {
         return nr_promotions * offerPrice;
     }
 }
-
