@@ -148,9 +148,7 @@ public class CheckoutSolution {
             if (offerXYZquantity == productQuantity) {
                 productQuantity = productQuantity % 3;
                 offerXYZquantity = 0;
-            }
-
-            if (offerXYZquantity > productQuantity) {
+            }else if (offerXYZquantity > productQuantity) {
                 product.setQuantity(0);
                 offerXYZquantity -= productQuantity;
             } else {
@@ -178,6 +176,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
