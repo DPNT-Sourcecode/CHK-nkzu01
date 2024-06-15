@@ -38,7 +38,8 @@ public abstract class Product {
         this.quantity = quantity;
     }
 
-     public abstract Integer  BuyXForY(Integer offerQuantity, Integer offerPrice);
+     public abstract Integer  Offer();
 
 }
+
 

@@ -21,11 +21,11 @@ public class CheckoutSolution {
             Character ch = skus.charAt(i);
 
             if (!products.containsKey(ch)) {
-                Integer price = 0;
+                Product product = null;
                 if (ch.equals('A')) {
-                    price = 50;
+                    product = new ProductA(ch.toString(), 50, 0, 5, 200, 3,130);
                 }
-                Product product = new Product(ch.toString(), price, 0);
+
                 products.put(ch, product);
             }
             if (!freq.containsKey(ch)) {
@@ -38,17 +38,17 @@ public class CheckoutSolution {
         }
 
 //        check the number of E's and remove the corresponding B's
-        if (freq.containsKey('B') && freq.containsKey('E')) {
-            Integer nr_e = freq.get('E');
-            Integer nr_b = 0;
-            nr_b = freq.get('B');
-            if (nr_b >= nr_e / nr_E_prom) {
-                nr_b -= nr_e / nr_E_prom;
-            } else {
-                nr_b = 0;
-            }
-            freq.put('B', nr_b);
-        }
+//        if (freq.containsKey('B') && freq.containsKey('E')) {
+//            Integer nr_e = freq.get('E');
+//            Integer nr_b = 0;
+//            nr_b = freq.get('B');
+//            if (nr_b >= nr_e / nr_E_prom) {
+//                nr_b -= nr_e / nr_E_prom;
+//            } else {
+//                nr_b = 0;
+//            }
+//            freq.put('B', nr_b);
+//        }
 
 
 //        +------+-------+------------------------+
@@ -83,47 +83,48 @@ public class CheckoutSolution {
 //        +------+-------+------------------------+
         for (Map.Entry<Character, Product> entry : products.entrySet()) {
             Character key = entry.getKey();
-            Product val = entry.getValue();
-
+            Product product = entry.getValue();
+            totalValue += product.Offer();
         }
-
-        for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
-            Character key = entry.getKey();
-            Integer val = entry.getValue();
-            if (key.equals('A')) {
-//                first promotion
-                Integer nr_promotions1 = val / nr_A_prom_1;
-                totalValue += 200 * nr_promotions1;
-                val -= nr_promotions1 * nr_A_prom_1;
-//                second promotion
-                Integer nr_promotions2 = val / nr_A_prom_2;
-                totalValue += 130 * nr_promotions2;
-                totalValue += (val % nr_A_prom_2) * 50;
-            } else if (key.equals('B')) {
-                Integer nr_promotions = val / nr_B_prom;
-                totalValue += 45 * nr_promotions;
-                totalValue += (val % nr_B_prom) * 30;
-            } else if (key.equals('C')) {
-                totalValue += 20 * val;
-            } else if (key.equals('D')) {
-                totalValue += 15 * val;
-            } else if (key.equals('E')) {
-                totalValue += 40 * val;
-            } else if (key.equals('F')) {
-                Integer nr_promotions = val / nr_F_prom;
-                val -= nr_promotions;
-                totalValue += 10 * val;
-            } else if (key.equals('G')) {
-                totalValue += 20 * val;
-            } else {
-//                bad input
-                return -1;
-            }
-
-        }
+//
+//        for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
+//            Character key = entry.getKey();
+//            Integer val = entry.getValue();
+//            if (key.equals('A')) {
+////                first promotion
+//                Integer nr_promotions1 = val / nr_A_prom_1;
+//                totalValue += 200 * nr_promotions1;
+//                val -= nr_promotions1 * nr_A_prom_1;
+////                second promotion
+//                Integer nr_promotions2 = val / nr_A_prom_2;
+//                totalValue += 130 * nr_promotions2;
+//                totalValue += (val % nr_A_prom_2) * 50;
+//            } else if (key.equals('B')) {
+//                Integer nr_promotions = val / nr_B_prom;
+//                totalValue += 45 * nr_promotions;
+//                totalValue += (val % nr_B_prom) * 30;
+//            } else if (key.equals('C')) {
+//                totalValue += 20 * val;
+//            } else if (key.equals('D')) {
+//                totalValue += 15 * val;
+//            } else if (key.equals('E')) {
+//                totalValue += 40 * val;
+//            } else if (key.equals('F')) {
+//                Integer nr_promotions = val / nr_F_prom;
+//                val -= nr_promotions;
+//                totalValue += 10 * val;
+//            } else if (key.equals('G')) {
+//                totalValue += 20 * val;
+//            } else {
+////                bad input
+//                return -1;
+//            }
+//
+//        }
 
         return totalValue;
     }
 
 }
+
 
