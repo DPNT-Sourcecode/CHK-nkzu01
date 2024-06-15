@@ -21,7 +21,11 @@ public class CheckoutSolution {
             Character ch = skus.charAt(i);
 
             if (!products.containsKey(ch)) {
-                Product product = new Product(ch.toString(), 50, 0);
+                Integer price = 0;
+                if (ch.equals('A')) {
+                    price = 50;
+                }
+                Product product = new Product(ch.toString(), price, 0);
                 products.put(ch, product);
             }
             if (!freq.containsKey(ch)) {
@@ -77,6 +81,12 @@ public class CheckoutSolution {
 //| Y    | 10    |                        |
 //| Z    | 50    |                        |
 //        +------+-------+------------------------+
+        for (Map.Entry<Character, Product> entry : products.entrySet()) {
+            Character key = entry.getKey();
+            Product val = entry.getValue();
+
+        }
+
         for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
             Character key = entry.getKey();
             Integer val = entry.getValue();
@@ -116,3 +126,4 @@ public class CheckoutSolution {
     }
 
 }
+

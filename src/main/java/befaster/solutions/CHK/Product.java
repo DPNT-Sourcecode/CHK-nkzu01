@@ -1,6 +1,6 @@
 package befaster.solutions.CHK;
 
-public class Product {
+public abstract class Product {
     String name;
     Integer price;
     Integer quantity;
@@ -37,4 +37,8 @@ public class Product {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+     public abstract Integer  BuyXForY(Integer offerQuantity, Integer offerPrice);
+
 }
+
