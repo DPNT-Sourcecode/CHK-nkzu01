@@ -32,6 +32,8 @@ public class CheckoutSolution {
                     product = new Product(ch.toString(), 15, 0);
                 }  else if (ch.equals('E')) {
                     product = new ProductE(ch.toString(), 40, 0, 2, 1, 'B');
+                } else if (ch.equals('F')) {
+                    product = new ProductB(ch.toString(), 10, 0, 3, 20);
                 } else {
                     return -1;
                 }
@@ -64,5 +66,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 

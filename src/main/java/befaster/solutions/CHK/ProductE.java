@@ -25,17 +25,6 @@ public class ProductE extends Product{
         if (!products.containsKey(productReduceName))
             return;
         Product product = products.get(productReduceName);
-//        if (freq.containsKey('B') && freq.containsKey('E')) {
-//            Integer nr_e = freq.get('E');
-//            Integer nr_b = 0;
-//            nr_b = freq.get('B');
-//            if (nr_b >= nr_e / nr_E_prom) {
-//                nr_b -= nr_e / nr_E_prom;
-//            } else {
-//                nr_b = 0;
-//            }
-//            freq.put('B', nr_b);
-//        }
         if (product.getQuantity() >= (this.quantity / this.offerQuantity) * offerReduceQuantityAmount) {
             product.setQuantity(product.getQuantity() - (this.quantity / this.offerQuantity) * offerReduceQuantityAmount);
             return;
@@ -43,5 +32,6 @@ public class ProductE extends Product{
         product.setQuantity(0);
     }
 }
+
 
 
