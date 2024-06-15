@@ -27,9 +27,9 @@ public class CheckoutSolution {
         }
 
 //        check the number of E's and remove the corresponding B's
-        Integer nr_e = freq.get('E');
-        Integer nr_b = 0;
-        if (freq.containsKey('B')) {
+        if (freq.containsKey('B') && freq.containsKey('E')) {
+            Integer nr_e = freq.get('E');
+            Integer nr_b = 0;
             nr_b = freq.get('B');
             if (nr_b >= nr_e / 2) {
                 nr_b -= nr_e / 2;
@@ -67,5 +67,6 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
+
 
 

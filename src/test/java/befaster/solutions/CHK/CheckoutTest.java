@@ -49,7 +49,7 @@ public class CheckoutTest {
 
     @Test
     public void bad_input() {
-        assertThat(chk.checkout("AAEB"), equalTo(-1));
+        assertThat(chk.checkout("AAhB"), equalTo(-1));
     }
 
     @Test
@@ -67,6 +67,7 @@ public class CheckoutTest {
         assertThat(chk.checkout("EEEEBBBABECCDBAA"), equalTo(460));
     }
 }
+
 
 
 
