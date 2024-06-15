@@ -15,4 +15,3 @@ public class ProductA extends Product{
 //    int offerQuantity2;
 
 }
-
