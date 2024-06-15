@@ -37,9 +37,15 @@ public class CheckoutTest {
 
     @Test
     public void compute_tripleA() {
-        assertThat(chk.checkout("AABAA"), equalTo(130));
+        assertThat(chk.checkout("AABAA"), equalTo(210));
+    }
+
+    @Test
+    public void compute_doubleB() {
+        assertThat(chk.checkout("DBB"), equalTo(60));
     }
 }
+
 
 
 

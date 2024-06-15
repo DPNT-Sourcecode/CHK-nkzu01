@@ -9,10 +9,12 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
+
 //        throw new SolutionNotImplementedException();
         HashMap<Character, Integer> freq = new HashMap<>(4);
         Integer totalValue = 0;
         Integer nr_A_prom = 3;
+        Integer nr_B_prom = 2;
 
         for (int i = 0; i < skus.length(); i++) {
             Character ch = skus.charAt(i);
@@ -31,7 +33,9 @@ public class CheckoutSolution {
                 totalValue += 130 * nr_promotions;
                 totalValue += (val % nr_A_prom) * 50;
             } else if (key.equals('B')) {
-                totalValue += 30 * val;
+                Integer nr_promotions = val / nr_B_prom;
+                totalValue += 45 * nr_promotions;
+                totalValue += (val % nr_B_prom) * 30;
             } else if (key.equals('C')) {
                 totalValue += 20 * val;
             } else if (key.equals('D')) {
@@ -42,6 +46,7 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
+
 
 
 
