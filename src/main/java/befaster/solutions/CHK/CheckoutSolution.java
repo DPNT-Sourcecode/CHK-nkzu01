@@ -129,6 +129,9 @@ public class CheckoutSolution {
         for (Map.Entry<Character, Product> entry : products.entrySet()) {
             Character key = entry.getKey();
             Product product = entry.getValue();
+            if (product.getQuantity() == 0) {
+                continue;
+            }
             if (key.equals('S') || key.equals('T') || key.equals('X') || key.equals('Y') || key.equals('Z')) {
                 offerXYZquantity += product.getQuantity();
                 offerXYZList.add(product);
@@ -143,8 +146,8 @@ public class CheckoutSolution {
             }
             Integer productQuantity = product.getQuantity();
             if (offerXYZquantity >= productQuantity) {
-                product.setQuantity(0);
-                offerXYZquantity -= productQuantity;
+                product.setQuantity(productQuantity % 3);
+                offerXYZquantity -= productQuantity / 3;
             } else {
                 product.setQuantity(productQuantity - offerXYZquantity);
                 offerXYZquantity = 0;
@@ -170,4 +173,5 @@ public class CheckoutSolution {
     }
 
 }
+
 
