@@ -37,8 +37,9 @@ public class CheckoutTest {
 
     @Test
     public void compute_tripleA() {
-        assertThat(chk.checkout("AAA"), equalTo(130));
+        assertThat(chk.checkout("AABAA"), equalTo(130));
     }
 }
+
 
 
