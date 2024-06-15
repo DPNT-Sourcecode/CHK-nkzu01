@@ -146,8 +146,8 @@ public class CheckoutSolution {
             }
             Integer productQuantity = product.getQuantity();
             if (offerXYZquantity >= productQuantity) {
-                product.setQuantity(productQuantity % 3);
-                offerXYZquantity -= productQuantity / 3;
+                product.setQuantity(0);
+                offerXYZquantity -= productQuantity;
             } else {
                 product.setQuantity(productQuantity - offerXYZquantity);
                 offerXYZquantity = 0;
@@ -173,5 +173,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
