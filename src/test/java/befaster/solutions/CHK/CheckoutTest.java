@@ -77,4 +77,10 @@ public class CheckoutTest {
     public void testF() {
         assertThat(chk.checkout("FFFFFF"), equalTo(40));
     }
+
+    @Test
+    public void testS() {
+        assertThat(chk.checkout("SSTS"), equalTo(65));
+    }
 }
+
