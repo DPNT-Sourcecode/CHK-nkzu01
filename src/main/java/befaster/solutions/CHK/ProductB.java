@@ -24,4 +24,3 @@ public class ProductB extends Product{
         return total;
     }
 }
-
