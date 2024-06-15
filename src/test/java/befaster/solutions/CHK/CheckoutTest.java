@@ -34,5 +34,11 @@ public class CheckoutTest {
     public void compute_complex_sum() {
         assertThat(chk.checkout("ABCCCDAD"), equalTo(220));
     }
+
+    @Test
+    public void compute_tripleA() {
+        assertThat(chk.checkout("AAA"), equalTo(130));
+    }
 }
+
 

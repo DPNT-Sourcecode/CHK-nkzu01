@@ -25,6 +25,7 @@ public class CheckoutSolution {
             Character key = entry.getKey();
             if (key.equals('A')) {
                 totalValue += 50 * entry.getValue();
+                
             } else if (key.equals('B')) {
                 totalValue += 30 * entry.getValue();
             } else if (key.equals('C')) {
@@ -37,4 +38,5 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
+
 
