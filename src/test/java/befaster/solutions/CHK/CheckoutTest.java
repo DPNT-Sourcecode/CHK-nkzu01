@@ -80,8 +80,9 @@ public class CheckoutTest {
 
     @Test
     public void testS() {
-        assertThat(chk.checkout("SSSS"), equalTo(65));
+        assertThat(chk.checkout("TSSS"), equalTo(65));
     }
 }
+
 
 
