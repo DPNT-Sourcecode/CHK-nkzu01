@@ -23,7 +23,7 @@ public class ProductA extends Product{
     }
 
     @Override
-    public Integer Offer() {
+    public Integer calculateOffer() {
         Integer nr_prom1 = this.quantity / offerQuantity1;
         Integer totalPrice = nr_prom1 * offerPrice1;
         Integer quantity = this.getQuantity();
@@ -31,9 +31,10 @@ public class ProductA extends Product{
 
         Integer nr_prom2 = quantity / offerQuantity2;
         totalPrice += offerPrice2 * nr_prom2;
-        totalPrice += (quantity % nr_prom2) * this.price;
+        totalPrice += (quantity % offerQuantity2) * this.price;
         return totalPrice;
     }
 }
+
 
 

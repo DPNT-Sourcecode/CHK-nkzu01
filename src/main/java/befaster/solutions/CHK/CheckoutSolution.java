@@ -24,6 +24,8 @@ public class CheckoutSolution {
                 Product product = null;
                 if (ch.equals('A')) {
                     product = new ProductA(ch.toString(), 50, 0, 5, 200, 3,130);
+                } else if (ch.equals('B')) {
+                    product = new ProductB(ch.toString(), 30, 0, 2, 45);
                 }
 
                 products.put(ch, product);
@@ -84,7 +86,7 @@ public class CheckoutSolution {
         for (Map.Entry<Character, Product> entry : products.entrySet()) {
             Character key = entry.getKey();
             Product product = entry.getValue();
-            totalValue += product.Offer();
+            totalValue += product.calculateOffer();
         }
 //
 //        for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
@@ -126,5 +128,6 @@ public class CheckoutSolution {
     }
 
 }
+
 
 

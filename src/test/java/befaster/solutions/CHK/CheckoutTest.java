@@ -15,16 +15,11 @@ public class CheckoutTest {
         chk = new CheckoutSolution();
     }
 
+    @Test
+    public void testExamples() {
+        assertThat(chk.checkout("AAAAAA"), equalTo(250));
+    }
 
-//    Our price table and offers:
-//            +------+-------+----------------+
-//            | Item | Price | Special offers |
-//            +------+-------+----------------+
-//            | A    | 50    | 3A for 130     |
-//            | B    | 30    | 2B for 45      |
-//            | C    | 20    |                |
-//            | D    | 15    |                |
-//            +------+-------+----------------+
     @Test
     public void compute_basic_sum() {
         assertThat(chk.checkout("ABC"), equalTo(100));
@@ -77,3 +72,4 @@ public class CheckoutTest {
         assertThat(chk.checkout("FFFFFF"), equalTo(40));
     }
 }
+

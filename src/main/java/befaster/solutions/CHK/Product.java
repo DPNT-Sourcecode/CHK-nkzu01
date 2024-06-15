@@ -38,8 +38,9 @@ public abstract class Product {
         this.quantity = quantity;
     }
 
-     public abstract Integer  Offer();
+     public abstract Integer calculateOffer();
 
 }
+
 
 
