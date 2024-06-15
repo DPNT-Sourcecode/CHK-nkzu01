@@ -78,4 +78,3 @@ public class CheckoutTest {
         assertThat(chk.checkout("FFFFFF"), equalTo(40));
     }
 }
-

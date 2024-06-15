@@ -32,6 +32,3 @@ public class ProductE extends Product{
         product.setQuantity(0);
     }
 }
-
-
-
