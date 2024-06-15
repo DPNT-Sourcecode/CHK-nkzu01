@@ -66,7 +66,13 @@ public class CheckoutTest {
     public void testEAndB_complex() {
         assertThat(chk.checkout("EEEEBBBABECCDBAA"), equalTo(460));
     }
+
+    @Test
+    public void testMultipleA() {
+        assertThat(chk.checkout("AAAAAAAAA"), equalTo(380));
+    }
 }
+
 
 
 

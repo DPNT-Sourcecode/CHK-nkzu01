@@ -1,9 +1,5 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
-import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +8,8 @@ public class CheckoutSolution {
 
         HashMap<Character, Integer> freq = new HashMap<>(4);
         Integer totalValue = 0;
-        Integer nr_A_prom = 3;
+        Integer nr_A_prom_1 = 5;
+        Integer nr_A_prom_2 = 3;
         Integer nr_B_prom = 2;
         Integer nr_E_prom = 2;
 
@@ -44,9 +41,14 @@ public class CheckoutSolution {
             Character key = entry.getKey();
             Integer val = entry.getValue();
             if (key.equals('A')) {
-                Integer nr_promotions = val / nr_A_prom;
-                totalValue += 130 * nr_promotions;
-                totalValue += (val % nr_A_prom) * 50;
+//                first promotion
+                Integer nr_promotions1 = val / nr_A_prom_1;
+                totalValue += 200 * nr_promotions1;
+                val -= nr_promotions1 * nr_A_prom_1;
+//                second promotion
+                Integer nr_promotions2 = val / nr_A_prom_2;
+                totalValue += 130 * nr_promotions2;
+                totalValue += (val % nr_A_prom_2) * 50;
             } else if (key.equals('B')) {
                 Integer nr_promotions = val / nr_B_prom;
                 totalValue += 45 * nr_promotions;
@@ -67,6 +69,7 @@ public class CheckoutSolution {
         return totalValue;
     }
 }
+
 
 
 
