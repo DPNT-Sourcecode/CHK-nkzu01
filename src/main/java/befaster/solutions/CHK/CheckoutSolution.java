@@ -143,19 +143,19 @@ public class CheckoutSolution {
         nrProdDeleted *= 3;
         offerXYZList.sort(Comparator.comparingInt(Product::getPrice).reversed());
         for (Product product : offerXYZList) {
-            if (offerXYZquantity < 3) {
+            if (nrProdDeleted < 3) {
                 break;
             }
             Integer productQuantity = product.getQuantity();
-            if (offerXYZquantity == productQuantity) {
-                productQuantity = productQuantity % 3;
-                offerXYZquantity = 0;
-            } else if (offerXYZquantity > productQuantity) {
+            if (nrProdDeleted == productQuantity) {
                 product.setQuantity(0);
-                offerXYZquantity -= productQuantity;
+                nrProdDeleted = 0;
+            } else if (nrProdDeleted > productQuantity) {
+                product.setQuantity(0);
+                nrProdDeleted -= productQuantity;
             } else {
-                product.setQuantity(productQuantity - offerXYZquantity);
-                offerXYZquantity = 0;
+                product.setQuantity(productQuantity - nrProdDeleted);
+                nrProdDeleted = 0;
             }
         }
 
@@ -178,3 +178,4 @@ public class CheckoutSolution {
     }
 
 }
+
