@@ -1,6 +1,6 @@
 package befaster.solutions.CHK;
 
-public abstract class Product {
+public class Product {
     String name;
     Integer price;
     Integer quantity;
@@ -38,9 +38,12 @@ public abstract class Product {
         this.quantity = quantity;
     }
 
-     public abstract Integer calculateOffer();
+     public Integer calculateOffer() {
+        return this.price * this.quantity;
+     }
 
 }
+
 
 
 

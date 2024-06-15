@@ -26,6 +26,12 @@ public class CheckoutSolution {
                     product = new ProductA(ch.toString(), 50, 0, 5, 200, 3,130);
                 } else if (ch.equals('B')) {
                     product = new ProductB(ch.toString(), 30, 0, 2, 45);
+                } else if (ch.equals('C')) {
+                    product = new Product(ch.toString(), 20, 0);
+                } else if (ch.equals('D')) {
+                    product = new Product(ch.toString(), 15, 0);
+                } else {
+                    return -1;
                 }
 
                 products.put(ch, product);
@@ -128,6 +134,7 @@ public class CheckoutSolution {
     }
 
 }
+
 
 
 
